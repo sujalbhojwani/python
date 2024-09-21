@@ -1,0 +1,31 @@
+# A simple Python3 program to find three elements whose
+# sum is equal to zero
+
+# Function to find and return all triplets with a sum
+# of zero
+def find_triplets(arr):
+    triplets = []  # List to store all the triplets
+    n = len(arr)
+
+    # Loop through each element and use nested loops
+    # to find the triplets
+    for i in range(n - 2):
+        for j in range(i + 1, n - 1):
+            for k in range(j + 1, n):
+                # Check if the sum of the current triplet
+                # is zero
+                if arr[i] + arr[j] + arr[k] == 0:
+                    # Append the triplet to the list
+                    # if the sum is zero
+                    triplets.append([arr[i], arr[j], arr[k]])
+
+    return triplets
+
+
+arr = [0, -1, 2, -3, 1]
+result = find_triplets(arr)
+if not result:
+    print("No triplets found with sum zero.")
+else:
+    for t in result:
+        print(f"{t[0]}, {t[1]}, {t[2]}")
